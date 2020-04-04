@@ -26,10 +26,10 @@ export default class PigPen extends React.Component {
   }
 
   alterEnvironment = (vibe) => {
-    if (vibe === "inhospitable")
+    if (vibe === "panic")
       this.audio.play()
     const newState = {environment: vibe}
-    this.setState(newState)
+    this.setState(newState);
   }
 
   generateSheeple = () => {
@@ -43,7 +43,7 @@ export default class PigPen extends React.Component {
     return(
       <div id="pig-pen">
         {sheeple}
-        <GalaxySNote7 environment={null} alterEnvironment={null} />
+        <GalaxySNote7 environment={this.state.environment} alterEnvironment={this.alterEnvironment} />
       </div>
     )
   }
